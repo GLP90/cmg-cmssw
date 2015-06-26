@@ -15,6 +15,12 @@ kreator = ComponentCreator()
 
 ## CENTRALLY PRODUCED MINIAODs V2 (from global DBS, in T2_CH_CAF)
 
+# DY inclusive (cross section from FEWZ, StandardModelCrossSectionsat13TeV)
+DYJetsToLL_M50 = kreator.makeMCComponent("DYJetsToLL_M50", "/DYJetsToLL_M-50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8/RunIISpring15DR74-AsymptFlat10to50bx25Raw_MCRUN2_74_V9-v1/AODSIM", "CMS", ".*root", 2008.*3)
+
+mcSamples = [DYJetsToLL_M50] 
+
+'''
 ##################  PU40 bx25ns (not default, so samples have a _PU40bx25 postfix) ################## 
 GGHZZ4L_PU40bx25 = kreator.makeMCComponent("GGHZZ4L_PU40bx25", "/GluGluToHToZZTo4L_M-125_13TeV-powheg-pythia6/Phys14DR-PU40bx25_PHYS14_25_V1-v1/MINIAODSIM", "CMS", ".*root", 43.92*2.76E-04)
 
@@ -368,6 +374,8 @@ T6qqWW = [ T6qqWW_mSq950_mCh325_mChi300 ]
 mcSamplesPriv = T5ttttDeg + T1ttbbWW + T1ttbb + T6ttWW + SqGltttt + T1tttt_priv + T5qqqqWW + T5qqqqWWDeg + T6qqWW + GJets_fixPhoton + QCDHT_fixPhoton
 
 mcSamples = mcSamplesPHYS14_PU20bx25 + mcSamplesPHYS14_PU40bx25 + mcSamplesPHYS14_PU4bx50 + mcSamplesPriv
+
+'''
 
 #-----------DATA---------------
 

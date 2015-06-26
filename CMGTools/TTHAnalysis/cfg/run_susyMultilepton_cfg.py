@@ -13,7 +13,7 @@ from CMGTools.TTHAnalysis.analyzers.susyCore_modules_cff import *
 #-------- REDEFINE WHAT I NEED -----------
 
 # Lepton Skimming
-ttHLepSkim.minLeptons = 2
+#ttHLepSkim.minLeptons = 2
 ttHLepSkim.maxLeptons = 999
 #ttHLepSkim.idCut  = ""
 #ttHLepSkim.ptCuts = []
@@ -144,16 +144,7 @@ triggerFlagsAna.triggerBits = {
 from CMGTools.TTHAnalysis.samples.samples_13TeV_PHYS14 import *
 from CMGTools.TTHAnalysis.samples.samples_13TeV_CSA14v2 import SingleMu
 
-selectedComponents = [
-  ] + WJetsToLNuHT + DYJetsM50HT + [ #DYJetsToLL_M50,
-   TTJets ]+ SingleTop +[
-   TTWJets,TTZJets, TTH,
-   WZJetsTo3LNu, ZZTo4L,
-   #GGHZZ4L, GGHTT, VBFTT, 
-   SMS_T1tttt_2J_mGl1500_mLSP100, SMS_T1tttt_2J_mGl1200_mLSP800,
-   T5ttttDeg_mGo1000_mStop300_mCh285_mChi280, T5ttttDeg_mGo1000_mStop300_mCh285_mChi280_dil,
-   T5qqqqWW_mGo1200_mCh1000_mChi800_dilep, T5qqqqWWDeg_mGo1000_mCh315_mChi300_dilep
-]
+selectedComponents = [DYJetsToLL_M50]
 if False:
     ttHLepSkim.minLeptons = 1
     QCDPtEMEnriched.remove(QCD_Pt10to20_EMEnriched)
@@ -200,10 +191,10 @@ elif test == 'EOS':
     comp.files = comp.files[:1]
     if getHeppyOption('Wigner'):
         print "Will read from WIGNER"
-        comp.files = [ 'root://eoscms//eos/cms/store/mc/Phys14DR/DYJetsToLL_M-50_13TeV-madgraph-pythia8/MINIAODSIM/PU20bx25_PHYS14_25_V1-v1/00000/0432E62A-7A6C-E411-87BB-002590DB92A8.root' ]
+        comp.files = [ '/store/mc/RunIISpring15DR74/DYJetsToLL_M-50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8/AODSIM/AsymptFlat10to50bx25Raw_MCRUN2_74_V9-v1/10000/00BA30CE-9001-E511-AA08-0025905A60D0.root' ]
     else:
         print "Will read from CERN Meyrin"
-        comp.files = [ 'root://eoscms//eos/cms/store/mc/Phys14DR/DYJetsToLL_M-50_13TeV-madgraph-pythia8/MINIAODSIM/PU20bx25_PHYS14_25_V1-v1/10000/F675C068-5E6C-E411-B915-0025907DC9AC.root' ]
+        comp.files = [ '/store/mc/RunIISpring15DR74/DYJetsToLL_M-50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8/AODSIM/AsymptFlat10to50bx25Raw_MCRUN2_74_V9-v1/10000/00BA30CE-9001-E511-AA08-0025905A60D0.root' ]
     os.system("/afs/cern.ch/project/eos/installation/0.3.15/bin/eos.select fileinfo "+comp.files[0].replace("root://eoscms//","/"))
     comp.splitFactor = 1
     comp.fineSplitFactor = 1
@@ -229,7 +220,7 @@ elif test == '2lss-sync': # sync
     jetAna.recalibrateJets = False 
     jetAna.smearJets       = False 
     comp = SMS_T1tttt_2J_mGl1200_mLSP800
-    comp.files = [ 'root://eoscms//eos/cms/store/mc/Phys14DR/SMS-T1tttt_2J_mGl-1200_mLSP-800_Tune4C_13TeV-madgraph-tauola/MINIAODSIM/PU20bx25_tsg_PHYS14_25_V1-v1/00000/0CD15D7F-4E6B-E411-AEB4-002590DB9216.root' ]
+    comp.files = [ '/store/mc/RunIISpring15DR74/DYJetsToLL_M-50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8/AODSIM/AsymptFlat10to50bx25Raw_MCRUN2_74_V9-v1/10000/00BA30CE-9001-E511-AA08-0025905A60D0.root' ]
     comp.splitFactor = 1
     comp.fineSplitFactor = 10
     selectedComponents = [ comp ]
