@@ -160,9 +160,7 @@ from CMGTools.TTHAnalysis.samples.samples_13TeV_74X import *
 from CMGTools.TTHAnalysis.samples.samples_13TeV_74X_susySignalsPriv import *
 from CMGTools.TTHAnalysis.samples.samples_8TeVReReco_74X import *
 
-selectedComponents = [ SingleMu_742, MuEG_742, DoubleMu_742 ] 
-selectedComponents = [ TTJets, TTJets_LO, WJetsToLNu, DYJetsToLL_M10to50,  DYJetsToLL_M50,  ] + SingleTop + DiBosons
-selectedComponents = mcSamplesPriv 
+selectedComponents = [DYJetsToLL_M50_50ns ] 
 
 if False: # select only a subset of a sample, corresponding to a given luminosity (assuming ~30k events per MiniAOD file, which is ok for central production)
     target_lumi = 5000 # in inverse picobarns
